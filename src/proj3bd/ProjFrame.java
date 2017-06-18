@@ -29,6 +29,7 @@ public class ProjFrame extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         RelatorioPanel = new javax.swing.JPanel();
         tipoRelatorioLabel = new javax.swing.JLabel();
         tipoRelatorioComboBox = new javax.swing.JComboBox<>();
@@ -40,31 +41,40 @@ public class ProjFrame extends javax.swing.JFrame {
         treinadorLabel = new javax.swing.JLabel();
         treinadorTextField = new javax.swing.JTextField();
         medicoPanel = new javax.swing.JPanel();
-        modalidadeLabel1 = new javax.swing.JLabel();
-        modalidadeTextField1 = new javax.swing.JTextField();
-        medicoLabel1 = new javax.swing.JLabel();
-        medicoTextField1 = new javax.swing.JTextField();
-        treinadorLabel1 = new javax.swing.JLabel();
-        treinadorTextField1 = new javax.swing.JTextField();
+        qtdAtletaLabel = new javax.swing.JLabel();
+        qtdAtletaTextField = new javax.swing.JTextField();
+        nacaoLabel = new javax.swing.JLabel();
+        nacaoTextField = new javax.swing.JTextField();
         treinoPanel = new javax.swing.JPanel();
+        treinoLabel = new javax.swing.JLabel();
         treinadorPanel = new javax.swing.JPanel();
+        labelTreinador = new javax.swing.JLabel();
         Header = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel2.setText("T.B.D.");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 852, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(707, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 521, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(487, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("Primeira parte", jPanel1);
 
         tipoRelatorioLabel.setText("Tipo de Relatório");
 
@@ -74,8 +84,6 @@ public class ProjFrame extends javax.swing.JFrame {
                 tipoRelatorioComboBoxActionPerformed(evt);
             }
         });
-
-        atletaPanel.setVisible(false);
 
         modalidadeLabel.setText("Modalidade");
 
@@ -118,7 +126,7 @@ public class ProjFrame extends javax.swing.JFrame {
                 .addComponent(treinadorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(treinadorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         atletaPanelLayout.setVerticalGroup(
             atletaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,32 +139,24 @@ public class ProjFrame extends javax.swing.JFrame {
                     .addComponent(medicoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(treinadorLabel)
                     .addComponent(treinadorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(444, Short.MAX_VALUE))
+                .addContainerGap(474, Short.MAX_VALUE))
         );
 
-        atletaPanel.setVisible(false);
+        medicoPanel.setVisible(false);
 
-        modalidadeLabel1.setText("Modalidade");
+        qtdAtletaLabel.setText("Quantidade de atletas atendidos");
 
-        modalidadeTextField1.addActionListener(new java.awt.event.ActionListener() {
+        qtdAtletaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modalidadeTextField1ActionPerformed(evt);
+                qtdAtletaTextFieldActionPerformed(evt);
             }
         });
 
-        medicoLabel1.setText("Atendido por Dr(a).");
+        nacaoLabel.setText("País de Origem");
 
-        medicoTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nacaoTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                medicoTextField1ActionPerformed(evt);
-            }
-        });
-
-        treinadorLabel1.setText("Treinado por");
-
-        treinadorTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                treinadorTextField1ActionPerformed(evt);
+                nacaoTextFieldActionPerformed(evt);
             }
         });
 
@@ -166,57 +166,67 @@ public class ProjFrame extends javax.swing.JFrame {
             medicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(medicoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(modalidadeLabel1)
+                .addComponent(qtdAtletaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(modalidadeTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qtdAtletaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(medicoLabel1)
+                .addComponent(nacaoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(medicoTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(treinadorLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(treinadorTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(nacaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         medicoPanelLayout.setVerticalGroup(
             medicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(medicoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(medicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(modalidadeLabel1)
-                    .addComponent(modalidadeTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(medicoLabel1)
-                    .addComponent(medicoTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(treinadorLabel1)
-                    .addComponent(treinadorTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(432, Short.MAX_VALUE))
+                    .addComponent(qtdAtletaLabel)
+                    .addComponent(qtdAtletaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nacaoLabel)
+                    .addComponent(nacaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(474, Short.MAX_VALUE))
         );
 
-        atletaPanel.setVisible(false);
+        treinoPanel.setVisible(false);
+
+        treinoLabel.setText("Relatório de Treino");
 
         javax.swing.GroupLayout treinoPanelLayout = new javax.swing.GroupLayout(treinoPanel);
         treinoPanel.setLayout(treinoPanelLayout);
         treinoPanelLayout.setHorizontalGroup(
             treinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(treinoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(treinoLabel)
+                .addContainerGap(715, Short.MAX_VALUE))
         );
         treinoPanelLayout.setVerticalGroup(
             treinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
+            .addGroup(treinoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(treinoLabel)
+                .addContainerGap(484, Short.MAX_VALUE))
         );
 
-        atletaPanel.setVisible(false);
+        treinadorPanel.setVisible(false);
+
+        labelTreinador.setText("Relatório de Treinadores com atletas irregulares");
 
         javax.swing.GroupLayout treinadorPanelLayout = new javax.swing.GroupLayout(treinadorPanel);
         treinadorPanel.setLayout(treinadorPanelLayout);
         treinadorPanelLayout.setHorizontalGroup(
             treinadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(treinadorPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTreinador)
+                .addContainerGap(533, Short.MAX_VALUE))
         );
         treinadorPanelLayout.setVerticalGroup(
             treinadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
+            .addGroup(treinadorPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTreinador)
+                .addContainerGap(484, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout RelatorioPanelLayout = new javax.swing.GroupLayout(RelatorioPanel);
@@ -225,19 +235,20 @@ public class ProjFrame extends javax.swing.JFrame {
             RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RelatorioPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RelatorioPanelLayout.createSequentialGroup()
-                        .addComponent(tipoRelatorioLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tipoRelatorioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 443, Short.MAX_VALUE))
-                    .addComponent(atletaPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(tipoRelatorioLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tipoRelatorioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(449, Short.MAX_VALUE))
             .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
-                    .addGap(12, 12, 12)
+                    .addContainerGap()
+                    .addComponent(atletaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RelatorioPanelLayout.createSequentialGroup()
+                    .addContainerGap()
                     .addComponent(medicoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(12, 12, 12)))
+                    .addContainerGap()))
             .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -256,22 +267,25 @@ public class ProjFrame extends javax.swing.JFrame {
                 .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipoRelatorioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tipoRelatorioLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(atletaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(518, Short.MAX_VALUE))
             .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
-                    .addGap(28, 28, 28)
+                    .addGap(39, 39, 39)
+                    .addComponent(atletaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RelatorioPanelLayout.createSequentialGroup()
+                    .addGap(39, 39, 39)
                     .addComponent(medicoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(29, 29, 29)))
+                    .addContainerGap()))
             .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
-                    .addContainerGap()
+                    .addGap(39, 39, 39)
                     .addComponent(treinoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
-                    .addContainerGap()
+                    .addGap(39, 39, 39)
                     .addComponent(treinadorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
@@ -371,17 +385,13 @@ public class ProjFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_treinadorTextFieldActionPerformed
 
-    private void modalidadeTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modalidadeTextField1ActionPerformed
+    private void qtdAtletaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qtdAtletaTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_modalidadeTextField1ActionPerformed
+    }//GEN-LAST:event_qtdAtletaTextFieldActionPerformed
 
-    private void medicoTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicoTextField1ActionPerformed
+    private void nacaoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nacaoTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_medicoTextField1ActionPerformed
-
-    private void treinadorTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_treinadorTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_treinadorTextField1ActionPerformed
+    }//GEN-LAST:event_nacaoTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -423,24 +433,88 @@ public class ProjFrame extends javax.swing.JFrame {
     private javax.swing.JPanel RelatorioPanel;
     private javax.swing.JPanel atletaPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel labelTreinador;
     private javax.swing.JLabel medicoLabel;
-    private javax.swing.JLabel medicoLabel1;
+    private javax.swing.JLabel medicoLabel10;
+    private javax.swing.JLabel medicoLabel11;
+    private javax.swing.JLabel medicoLabel12;
+    private javax.swing.JLabel medicoLabel4;
+    private javax.swing.JLabel medicoLabel5;
+    private javax.swing.JLabel medicoLabel6;
+    private javax.swing.JLabel medicoLabel7;
+    private javax.swing.JLabel medicoLabel8;
+    private javax.swing.JLabel medicoLabel9;
     private javax.swing.JPanel medicoPanel;
+    private javax.swing.JPanel medicoPanel10;
+    private javax.swing.JPanel medicoPanel2;
+    private javax.swing.JPanel medicoPanel3;
+    private javax.swing.JPanel medicoPanel4;
+    private javax.swing.JPanel medicoPanel5;
+    private javax.swing.JPanel medicoPanel6;
+    private javax.swing.JPanel medicoPanel7;
+    private javax.swing.JPanel medicoPanel8;
+    private javax.swing.JPanel medicoPanel9;
     private javax.swing.JTextField medicoTextField;
-    private javax.swing.JTextField medicoTextField1;
+    private javax.swing.JTextField medicoTextField10;
+    private javax.swing.JTextField medicoTextField11;
+    private javax.swing.JTextField medicoTextField12;
+    private javax.swing.JTextField medicoTextField4;
+    private javax.swing.JTextField medicoTextField5;
+    private javax.swing.JTextField medicoTextField6;
+    private javax.swing.JTextField medicoTextField7;
+    private javax.swing.JTextField medicoTextField8;
+    private javax.swing.JTextField medicoTextField9;
     private javax.swing.JLabel modalidadeLabel;
-    private javax.swing.JLabel modalidadeLabel1;
+    private javax.swing.JLabel modalidadeLabel10;
+    private javax.swing.JLabel modalidadeLabel11;
+    private javax.swing.JLabel modalidadeLabel12;
+    private javax.swing.JLabel modalidadeLabel4;
+    private javax.swing.JLabel modalidadeLabel5;
+    private javax.swing.JLabel modalidadeLabel6;
+    private javax.swing.JLabel modalidadeLabel7;
+    private javax.swing.JLabel modalidadeLabel8;
+    private javax.swing.JLabel modalidadeLabel9;
     private javax.swing.JTextField modalidadeTextField;
-    private javax.swing.JTextField modalidadeTextField1;
+    private javax.swing.JTextField modalidadeTextField10;
+    private javax.swing.JTextField modalidadeTextField11;
+    private javax.swing.JTextField modalidadeTextField12;
+    private javax.swing.JTextField modalidadeTextField4;
+    private javax.swing.JTextField modalidadeTextField5;
+    private javax.swing.JTextField modalidadeTextField6;
+    private javax.swing.JTextField modalidadeTextField7;
+    private javax.swing.JTextField modalidadeTextField8;
+    private javax.swing.JTextField modalidadeTextField9;
+    private javax.swing.JLabel nacaoLabel;
+    private javax.swing.JTextField nacaoTextField;
+    private javax.swing.JLabel qtdAtletaLabel;
+    private javax.swing.JTextField qtdAtletaTextField;
     private javax.swing.JComboBox<String> tipoRelatorioComboBox;
     private javax.swing.JLabel tipoRelatorioLabel;
     private javax.swing.JLabel treinadorLabel;
-    private javax.swing.JLabel treinadorLabel1;
+    private javax.swing.JLabel treinadorLabel10;
+    private javax.swing.JLabel treinadorLabel11;
+    private javax.swing.JLabel treinadorLabel12;
+    private javax.swing.JLabel treinadorLabel4;
+    private javax.swing.JLabel treinadorLabel5;
+    private javax.swing.JLabel treinadorLabel6;
+    private javax.swing.JLabel treinadorLabel7;
+    private javax.swing.JLabel treinadorLabel8;
+    private javax.swing.JLabel treinadorLabel9;
     private javax.swing.JPanel treinadorPanel;
     private javax.swing.JTextField treinadorTextField;
-    private javax.swing.JTextField treinadorTextField1;
+    private javax.swing.JTextField treinadorTextField10;
+    private javax.swing.JTextField treinadorTextField11;
+    private javax.swing.JTextField treinadorTextField12;
+    private javax.swing.JTextField treinadorTextField4;
+    private javax.swing.JTextField treinadorTextField5;
+    private javax.swing.JTextField treinadorTextField6;
+    private javax.swing.JTextField treinadorTextField7;
+    private javax.swing.JTextField treinadorTextField8;
+    private javax.swing.JTextField treinadorTextField9;
+    private javax.swing.JLabel treinoLabel;
     private javax.swing.JPanel treinoPanel;
     // End of variables declaration//GEN-END:variables
 }
