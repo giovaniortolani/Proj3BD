@@ -40,11 +40,13 @@ public class ProjFrame extends javax.swing.JFrame {
         medicoTextField = new javax.swing.JTextField();
         treinadorLabel = new javax.swing.JLabel();
         treinadorTextField = new javax.swing.JTextField();
+        gerarAtletaBtn = new javax.swing.JButton();
         medicoPanel = new javax.swing.JPanel();
         qtdAtletaLabel = new javax.swing.JLabel();
         qtdAtletaTextField = new javax.swing.JTextField();
         nacaoLabel = new javax.swing.JLabel();
         nacaoTextField = new javax.swing.JTextField();
+        gerarMedicoBtn = new javax.swing.JButton();
         treinoPanel = new javax.swing.JPanel();
         treinoLabel = new javax.swing.JLabel();
         treinadorPanel = new javax.swing.JPanel();
@@ -109,6 +111,13 @@ public class ProjFrame extends javax.swing.JFrame {
             }
         });
 
+        gerarAtletaBtn.setText("Gerar Relatório");
+        gerarAtletaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerarAtletaBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout atletaPanelLayout = new javax.swing.GroupLayout(atletaPanel);
         atletaPanel.setLayout(atletaPanelLayout);
         atletaPanelLayout.setHorizontalGroup(
@@ -116,17 +125,19 @@ public class ProjFrame extends javax.swing.JFrame {
             .addGroup(atletaPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(modalidadeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(modalidadeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modalidadeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(medicoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(medicoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(treinadorLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(treinadorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(treinadorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(gerarAtletaBtn)
+                .addContainerGap())
         );
         atletaPanelLayout.setVerticalGroup(
             atletaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,8 +149,9 @@ public class ProjFrame extends javax.swing.JFrame {
                     .addComponent(medicoLabel)
                     .addComponent(medicoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(treinadorLabel)
-                    .addComponent(treinadorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(474, Short.MAX_VALUE))
+                    .addComponent(treinadorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gerarAtletaBtn))
+                .addContainerGap(471, Short.MAX_VALUE))
         );
 
         medicoPanel.setVisible(false);
@@ -160,6 +172,13 @@ public class ProjFrame extends javax.swing.JFrame {
             }
         });
 
+        gerarMedicoBtn.setText("Gerar Relatório");
+        gerarMedicoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerarMedicoBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout medicoPanelLayout = new javax.swing.GroupLayout(medicoPanel);
         medicoPanel.setLayout(medicoPanelLayout);
         medicoPanelLayout.setHorizontalGroup(
@@ -167,13 +186,15 @@ public class ProjFrame extends javax.swing.JFrame {
             .addGroup(medicoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(qtdAtletaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(qtdAtletaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nacaoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nacaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addComponent(gerarMedicoBtn)
+                .addContainerGap())
         );
         medicoPanelLayout.setVerticalGroup(
             medicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,8 +204,9 @@ public class ProjFrame extends javax.swing.JFrame {
                     .addComponent(qtdAtletaLabel)
                     .addComponent(qtdAtletaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nacaoLabel)
-                    .addComponent(nacaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(474, Short.MAX_VALUE))
+                    .addComponent(nacaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gerarMedicoBtn))
+                .addContainerGap(471, Short.MAX_VALUE))
         );
 
         treinoPanel.setVisible(false);
@@ -393,6 +415,14 @@ public class ProjFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nacaoTextFieldActionPerformed
 
+    private void gerarAtletaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarAtletaBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gerarAtletaBtnActionPerformed
+
+    private void gerarMedicoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarMedicoBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gerarMedicoBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -432,61 +462,18 @@ public class ProjFrame extends javax.swing.JFrame {
     private javax.swing.JPanel Header;
     private javax.swing.JPanel RelatorioPanel;
     private javax.swing.JPanel atletaPanel;
+    private javax.swing.JButton gerarAtletaBtn;
+    private javax.swing.JButton gerarMedicoBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel labelTreinador;
     private javax.swing.JLabel medicoLabel;
-    private javax.swing.JLabel medicoLabel10;
-    private javax.swing.JLabel medicoLabel11;
-    private javax.swing.JLabel medicoLabel12;
-    private javax.swing.JLabel medicoLabel4;
-    private javax.swing.JLabel medicoLabel5;
-    private javax.swing.JLabel medicoLabel6;
-    private javax.swing.JLabel medicoLabel7;
-    private javax.swing.JLabel medicoLabel8;
-    private javax.swing.JLabel medicoLabel9;
     private javax.swing.JPanel medicoPanel;
-    private javax.swing.JPanel medicoPanel10;
-    private javax.swing.JPanel medicoPanel2;
-    private javax.swing.JPanel medicoPanel3;
-    private javax.swing.JPanel medicoPanel4;
-    private javax.swing.JPanel medicoPanel5;
-    private javax.swing.JPanel medicoPanel6;
-    private javax.swing.JPanel medicoPanel7;
-    private javax.swing.JPanel medicoPanel8;
-    private javax.swing.JPanel medicoPanel9;
     private javax.swing.JTextField medicoTextField;
-    private javax.swing.JTextField medicoTextField10;
-    private javax.swing.JTextField medicoTextField11;
-    private javax.swing.JTextField medicoTextField12;
-    private javax.swing.JTextField medicoTextField4;
-    private javax.swing.JTextField medicoTextField5;
-    private javax.swing.JTextField medicoTextField6;
-    private javax.swing.JTextField medicoTextField7;
-    private javax.swing.JTextField medicoTextField8;
-    private javax.swing.JTextField medicoTextField9;
     private javax.swing.JLabel modalidadeLabel;
-    private javax.swing.JLabel modalidadeLabel10;
-    private javax.swing.JLabel modalidadeLabel11;
-    private javax.swing.JLabel modalidadeLabel12;
-    private javax.swing.JLabel modalidadeLabel4;
-    private javax.swing.JLabel modalidadeLabel5;
-    private javax.swing.JLabel modalidadeLabel6;
-    private javax.swing.JLabel modalidadeLabel7;
-    private javax.swing.JLabel modalidadeLabel8;
-    private javax.swing.JLabel modalidadeLabel9;
     private javax.swing.JTextField modalidadeTextField;
-    private javax.swing.JTextField modalidadeTextField10;
-    private javax.swing.JTextField modalidadeTextField11;
-    private javax.swing.JTextField modalidadeTextField12;
-    private javax.swing.JTextField modalidadeTextField4;
-    private javax.swing.JTextField modalidadeTextField5;
-    private javax.swing.JTextField modalidadeTextField6;
-    private javax.swing.JTextField modalidadeTextField7;
-    private javax.swing.JTextField modalidadeTextField8;
-    private javax.swing.JTextField modalidadeTextField9;
     private javax.swing.JLabel nacaoLabel;
     private javax.swing.JTextField nacaoTextField;
     private javax.swing.JLabel qtdAtletaLabel;
@@ -494,26 +481,8 @@ public class ProjFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> tipoRelatorioComboBox;
     private javax.swing.JLabel tipoRelatorioLabel;
     private javax.swing.JLabel treinadorLabel;
-    private javax.swing.JLabel treinadorLabel10;
-    private javax.swing.JLabel treinadorLabel11;
-    private javax.swing.JLabel treinadorLabel12;
-    private javax.swing.JLabel treinadorLabel4;
-    private javax.swing.JLabel treinadorLabel5;
-    private javax.swing.JLabel treinadorLabel6;
-    private javax.swing.JLabel treinadorLabel7;
-    private javax.swing.JLabel treinadorLabel8;
-    private javax.swing.JLabel treinadorLabel9;
     private javax.swing.JPanel treinadorPanel;
     private javax.swing.JTextField treinadorTextField;
-    private javax.swing.JTextField treinadorTextField10;
-    private javax.swing.JTextField treinadorTextField11;
-    private javax.swing.JTextField treinadorTextField12;
-    private javax.swing.JTextField treinadorTextField4;
-    private javax.swing.JTextField treinadorTextField5;
-    private javax.swing.JTextField treinadorTextField6;
-    private javax.swing.JTextField treinadorTextField7;
-    private javax.swing.JTextField treinadorTextField8;
-    private javax.swing.JTextField treinadorTextField9;
     private javax.swing.JLabel treinoLabel;
     private javax.swing.JPanel treinoPanel;
     // End of variables declaration//GEN-END:variables
