@@ -47,8 +47,6 @@ public class ProjFrame extends javax.swing.JFrame {
         nacaoLabel = new javax.swing.JLabel();
         nacaoTextField = new javax.swing.JTextField();
         gerarMedicoBtn = new javax.swing.JButton();
-        treinoPanel = new javax.swing.JPanel();
-        treinoLabel = new javax.swing.JLabel();
         treinadorPanel = new javax.swing.JPanel();
         labelTreinador = new javax.swing.JLabel();
         Header = new javax.swing.JPanel();
@@ -80,7 +78,7 @@ public class ProjFrame extends javax.swing.JFrame {
 
         tipoRelatorioLabel.setText("Tipo de Relatório");
 
-        tipoRelatorioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Atletas", "Médicos", "Treino por Período", "Treinadores com atletas Irregulares" }));
+        tipoRelatorioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Atletas", "Médicos", "Treinadores com atletas Irregulares" }));
         tipoRelatorioComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipoRelatorioComboBoxActionPerformed(evt);
@@ -209,27 +207,6 @@ public class ProjFrame extends javax.swing.JFrame {
                 .addContainerGap(471, Short.MAX_VALUE))
         );
 
-        treinoPanel.setVisible(false);
-
-        treinoLabel.setText("Relatório de Treino");
-
-        javax.swing.GroupLayout treinoPanelLayout = new javax.swing.GroupLayout(treinoPanel);
-        treinoPanel.setLayout(treinoPanelLayout);
-        treinoPanelLayout.setHorizontalGroup(
-            treinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(treinoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(treinoLabel)
-                .addContainerGap(715, Short.MAX_VALUE))
-        );
-        treinoPanelLayout.setVerticalGroup(
-            treinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(treinoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(treinoLabel)
-                .addContainerGap(484, Short.MAX_VALUE))
-        );
-
         treinadorPanel.setVisible(false);
 
         labelTreinador.setText("Relatório de Treinadores com atletas irregulares");
@@ -260,7 +237,7 @@ public class ProjFrame extends javax.swing.JFrame {
                 .addComponent(tipoRelatorioLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tipoRelatorioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(449, Short.MAX_VALUE))
+                .addContainerGap(450, Short.MAX_VALUE))
             .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -270,11 +247,6 @@ public class ProjFrame extends javax.swing.JFrame {
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(medicoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-            .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(RelatorioPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(treinoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
@@ -299,11 +271,6 @@ public class ProjFrame extends javax.swing.JFrame {
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
                     .addGap(39, 39, 39)
                     .addComponent(medicoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-            .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(RelatorioPanelLayout.createSequentialGroup()
-                    .addGap(39, 39, 39)
-                    .addComponent(treinoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(RelatorioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(RelatorioPanelLayout.createSequentialGroup()
@@ -366,26 +333,16 @@ public class ProjFrame extends javax.swing.JFrame {
             case 0:     // Reltorio de Atleta
                 this.atletaPanel.setVisible(true);
                 this.medicoPanel.setVisible(false);
-                this.treinoPanel.setVisible(false);
                 this.treinadorPanel.setVisible(false);
-                
                 break;
             case 1:     // Relatorio de Medico
                 this.atletaPanel.setVisible(false);
                 this.medicoPanel.setVisible(true);
-                this.treinoPanel.setVisible(false);
                 this.treinadorPanel.setVisible(false);
                 break;
-            case 2:     // Relatorio de Treinos
+            case 2:     // Relatorio de Treinadores
                 this.atletaPanel.setVisible(false);
                 this.medicoPanel.setVisible(false);
-                this.treinoPanel.setVisible(true);
-                this.treinadorPanel.setVisible(false);
-                break;
-            case 3:     // Relatorio de Treinadores
-                this.atletaPanel.setVisible(false);
-                this.medicoPanel.setVisible(false);
-                this.treinoPanel.setVisible(false);
                 this.treinadorPanel.setVisible(true);
                 break;
             default:
@@ -483,7 +440,5 @@ public class ProjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel treinadorLabel;
     private javax.swing.JPanel treinadorPanel;
     private javax.swing.JTextField treinadorTextField;
-    private javax.swing.JLabel treinoLabel;
-    private javax.swing.JPanel treinoPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -107,7 +107,7 @@
                       <Component id="tipoRelatorioLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="tipoRelatorioComboBox" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="449" max="32767" attributes="0"/>
+                      <EmptySpace pref="450" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -124,13 +124,6 @@
                       </Group>
                   </Group>
                   <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="treinoPanel" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="treinadorPanel" max="32767" attributes="0"/>
@@ -166,13 +159,6 @@
                   <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="treinoPanel" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="treinadorPanel" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -189,11 +175,10 @@
             <Component class="javax.swing.JComboBox" name="tipoRelatorioComboBox">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="3">
                     <StringItem index="0" value="Atletas"/>
                     <StringItem index="1" value="M&#xe9;dicos"/>
-                    <StringItem index="2" value="Treino por Per&#xed;odo"/>
-                    <StringItem index="3" value="Treinadores com atletas Irregulares"/>
+                    <StringItem index="2" value="Treinadores com atletas Irregulares"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -354,39 +339,6 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gerarMedicoBtnActionPerformed"/>
                   </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="treinoPanel">
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="treinoPanel.setVisible(false);"/>
-              </AuxValues>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="treinoLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="715" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="treinoLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="484" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="treinoLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Treino"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
