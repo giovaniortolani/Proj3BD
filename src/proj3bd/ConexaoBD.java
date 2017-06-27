@@ -21,7 +21,9 @@ public class ConexaoBD {
     public static Connection conn; 
     public static Statement stmt = null;
 
-    private ConexaoBD() throws SQLException { 
+    private ConexaoBD() throws SQLException {
+        String bdUser = "8936648";          // Nome do Banco (nro USP)
+        String bdPassword = "universo";     // Senha do Banco
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (ClassNotFoundException ex) {
@@ -31,10 +33,12 @@ public class ConexaoBD {
         try {
             conn = DriverManager.getConnection(
                     "jdbc:oracle:thin:@grad.icmc.usp.br:15215:orcl",
-                    "8598861",
-                    "bernardo");
+                    bdUser,      
+                    bdPassword);    
 
             stmt = conn.createStatement();
+            
+            System.out.println("Conectado ao banco " + bdUser + " com sucesso!");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
