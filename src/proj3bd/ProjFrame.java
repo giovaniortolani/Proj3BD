@@ -5,6 +5,11 @@
  */
 package proj3bd;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author bernardold
@@ -49,6 +54,8 @@ public class ProjFrame extends javax.swing.JFrame {
         gerarMedicoBtn = new javax.swing.JButton();
         treinadorPanel = new javax.swing.JPanel();
         labelTreinador = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaTreinador = new javax.swing.JTable();
         Header = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -211,21 +218,59 @@ public class ProjFrame extends javax.swing.JFrame {
 
         labelTreinador.setText("Relatório de Treinadores com atletas irregulares");
 
+        tabelaTreinador.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome do Preparador", "Total Atletas", "Atletas Irregulares", "Razão Irregulares/Total"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelaTreinador);
+
         javax.swing.GroupLayout treinadorPanelLayout = new javax.swing.GroupLayout(treinadorPanel);
         treinadorPanel.setLayout(treinadorPanelLayout);
         treinadorPanelLayout.setHorizontalGroup(
             treinadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(treinadorPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelTreinador)
-                .addContainerGap(533, Short.MAX_VALUE))
+                .addGroup(treinadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(treinadorPanelLayout.createSequentialGroup()
+                        .addComponent(labelTreinador)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE))
+                .addContainerGap())
         );
         treinadorPanelLayout.setVerticalGroup(
             treinadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(treinadorPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTreinador)
-                .addContainerGap(484, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout RelatorioPanelLayout = new javax.swing.GroupLayout(RelatorioPanel);
@@ -344,6 +389,7 @@ public class ProjFrame extends javax.swing.JFrame {
                 this.atletaPanel.setVisible(false);
                 this.medicoPanel.setVisible(false);
                 this.treinadorPanel.setVisible(true);
+                this.geraRelatorioTreinadores();
                 break;
             default:
                 // May not happen
@@ -380,6 +426,29 @@ public class ProjFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_gerarMedicoBtnActionPerformed
 
+    private void geraRelatorioTreinadores () {
+        String query = "SELECT P.NOME_PREPARADOR, "
+                + "COUNT(*) AS TOTAL_ATLETAS, "
+                + "COUNT(CASE WHEN A.SITUACAO = 'IRREGULAR' THEN 1 ELSE NULL END) AS ATLETAS_IRREGULARES, "
+                + "(COUNT(CASE WHEN A.SITUACAO = 'IRREGULAR' THEN 1 ELSE NULL END) / COUNT(*)) AS RAZAO "
+                + "FROM PREPARADOR P, ATLETA A "
+                + "WHERE P.NUM_PASSAPORTE = A.PREPARADOR "
+                + "GROUP BY P.NOME_PREPARADOR "
+                + "ORDER BY ATLETAS_IRREGULARES DESC, RAZAO DESC;";
+            
+        try {
+            //ResultSet rs = ConexaoBD.stmt.executeQuery(query);
+            ResultSet rs = ConexaoBD.stmt.executeQuery("SELECT * FROM FUNCAO_PESSOA");
+            
+            System.out.println("Nome do Preparador \t Todos Atletas \t Atletas Irregulares \t Razao Irregular/Todos");
+            while (rs.next()) {
+                System.out.println(rs.getString("RAZAO"));
+                //System.out.println(rs.getString("P.NOME_PREPARADOR") + " \t " + rs.getString("TOTAL_ATLETAS") + " \t " + rs.getString("ATLETAS_IRREGULARES") + " \t " + rs.getString("RAZAO"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProjFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -411,6 +480,12 @@ public class ProjFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ProjFrame().setVisible(true);
+
+                try {
+                    ConexaoBD.getInstance();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProjFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -424,6 +499,7 @@ public class ProjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel labelTreinador;
     private javax.swing.JLabel medicoLabel;
@@ -435,6 +511,7 @@ public class ProjFrame extends javax.swing.JFrame {
     private javax.swing.JTextField nacaoTextField;
     private javax.swing.JLabel qtdAtletaLabel;
     private javax.swing.JTextField qtdAtletaTextField;
+    private javax.swing.JTable tabelaTreinador;
     private javax.swing.JComboBox<String> tipoRelatorioComboBox;
     private javax.swing.JLabel tipoRelatorioLabel;
     private javax.swing.JLabel treinadorLabel;
