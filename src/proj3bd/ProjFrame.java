@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -47,6 +48,8 @@ public class ProjFrame extends javax.swing.JFrame {
         treinadorLabel = new javax.swing.JLabel();
         treinadorTextField = new javax.swing.JTextField();
         gerarAtletaBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelaAtleta = new javax.swing.JTable();
         medicoPanel = new javax.swing.JPanel();
         qtdAtletaLabel = new javax.swing.JLabel();
         qtdAtletaTextField = new javax.swing.JTextField();
@@ -124,25 +127,59 @@ public class ProjFrame extends javax.swing.JFrame {
             }
         });
 
+        tabelaAtleta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome do Atleta", "Documento", "Treinador", "Data de Nascimento"
+            }
+        ));
+        jScrollPane2.setViewportView(tabelaAtleta);
+
         javax.swing.GroupLayout atletaPanelLayout = new javax.swing.GroupLayout(atletaPanel);
         atletaPanel.setLayout(atletaPanelLayout);
         atletaPanelLayout.setHorizontalGroup(
             atletaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(atletaPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(modalidadeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modalidadeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(medicoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(medicoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(treinadorLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(treinadorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(gerarAtletaBtn)
+                .addGroup(atletaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(atletaPanelLayout.createSequentialGroup()
+                        .addComponent(modalidadeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(modalidadeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(medicoLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(medicoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(treinadorLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(treinadorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(gerarAtletaBtn)))
                 .addContainerGap())
         );
         atletaPanelLayout.setVerticalGroup(
@@ -157,7 +194,9 @@ public class ProjFrame extends javax.swing.JFrame {
                     .addComponent(treinadorLabel)
                     .addComponent(treinadorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(gerarAtletaBtn))
-                .addContainerGap(471, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         medicoPanel.setVisible(false);
@@ -419,13 +458,44 @@ public class ProjFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_nacaoTextFieldActionPerformed
 
     private void gerarAtletaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarAtletaBtnActionPerformed
-        // TODO add your handling code here:
+
+        String mod = this.modalidadeTextField.getText().toUpperCase();
+        String med = this.medicoTextField.getText().toUpperCase();
+        String tr = this.treinadorTextField.getText().toUpperCase();
+        
+        this.geraRelatorioAtletas(mod, med, tr);
     }//GEN-LAST:event_gerarAtletaBtnActionPerformed
 
     private void gerarMedicoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarMedicoBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_gerarMedicoBtnActionPerformed
-
+    
+    private void geraRelatorioAtletas(String modalidade, String medico, String treinador) {
+        String query = "SELECT ATL.NOME, ATL.NUM_PASSAPORTE, ATL.PAIS_ATLETA, ATL.DATA_NASCIMENTO "
+                + "FROM ATLETA ATL INNER JOIN MODALIDADE MOD ON ATL.MODALIDADE = MOD.CODIGO_MODALIDADE "
+                + "INNER JOIN PREPARADOR P ON ATL.PREPARADOR = P.NUM_PASSAPORTE "
+                + "INNER JOIN ATENDIMENTO AT ON ATL.NUM_PASSAPORTE = AT.ATLETA "
+                + "INNER JOIN MEDICO MED ON MED.CRM = AT.MEDICO "
+                + "WHERE MOD.NOME_MODALIDADE LIKE '%" + modalidade + "%' AND MED.NOME LIKE '%" + medico + "%' AND P.NOME_PREPARADOR LIKE '%" + treinador + "%'";
+        
+        try {
+            ResultSet rs = ConexaoBD.stmt.executeQuery(query);
+            
+            int i = 0;
+            while (rs.next()) {
+                this.tabelaAtleta.setValueAt(rs.getString("NOME"), i, 0);
+                this.tabelaAtleta.setValueAt(rs.getString("NUM_PASSAPORTE"), i, 1);
+                this.tabelaAtleta.setValueAt(rs.getString("PAIS_ATLETA"), i, 2);
+                this.tabelaAtleta.setValueAt(rs.getString("DATA_NASCIMENTO"), i, 3);
+                i++;
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProjFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void geraRelatorioTreinadores () {
         String query = "SELECT P.NOME_PREPARADOR, "
                 + "COUNT(*) AS TOTAL_ATLETAS, "
@@ -504,6 +574,7 @@ public class ProjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel labelTreinador;
     private javax.swing.JLabel medicoLabel;
@@ -515,6 +586,7 @@ public class ProjFrame extends javax.swing.JFrame {
     private javax.swing.JTextField nacaoTextField;
     private javax.swing.JLabel qtdAtletaLabel;
     private javax.swing.JTextField qtdAtletaTextField;
+    private javax.swing.JTable tabelaAtleta;
     private javax.swing.JTable tabelaTreinador;
     private javax.swing.JComboBox<String> tipoRelatorioComboBox;
     private javax.swing.JLabel tipoRelatorioLabel;
