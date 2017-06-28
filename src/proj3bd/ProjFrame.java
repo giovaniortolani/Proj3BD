@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
 
 /**
  *
@@ -241,7 +242,6 @@ public class ProjFrame extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -269,8 +269,8 @@ public class ProjFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labelTreinador)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout RelatorioPanelLayout = new javax.swing.GroupLayout(RelatorioPanel);
@@ -434,17 +434,21 @@ public class ProjFrame extends javax.swing.JFrame {
                 + "FROM PREPARADOR P, ATLETA A "
                 + "WHERE P.NUM_PASSAPORTE = A.PREPARADOR "
                 + "GROUP BY P.NOME_PREPARADOR "
-                + "ORDER BY ATLETAS_IRREGULARES DESC, RAZAO DESC;";
+                + "ORDER BY ATLETAS_IRREGULARES DESC, RAZAO DESC";
             
         try {
-            //ResultSet rs = ConexaoBD.stmt.executeQuery(query);
-            ResultSet rs = ConexaoBD.stmt.executeQuery("SELECT * FROM FUNCAO_PESSOA");
+            ResultSet rs = ConexaoBD.stmt.executeQuery(query);
             
-            System.out.println("Nome do Preparador \t Todos Atletas \t Atletas Irregulares \t Razao Irregular/Todos");
+            int i = 0;
             while (rs.next()) {
-                System.out.println(rs.getString("RAZAO"));
-                //System.out.println(rs.getString("P.NOME_PREPARADOR") + " \t " + rs.getString("TOTAL_ATLETAS") + " \t " + rs.getString("ATLETAS_IRREGULARES") + " \t " + rs.getString("RAZAO"));
+                this.tabelaTreinador.setValueAt(rs.getString("NOME_PREPARADOR"), i, 0);
+                this.tabelaTreinador.setValueAt(rs.getString("TOTAL_ATLETAS"), i, 1);
+                this.tabelaTreinador.setValueAt(rs.getString("ATLETAS_IRREGULARES"), i, 2);
+                this.tabelaTreinador.setValueAt(rs.getString("RAZAO"), i, 3);
+                i++;
             }
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(ProjFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
